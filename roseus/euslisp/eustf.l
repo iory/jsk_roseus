@@ -85,6 +85,10 @@
   "Convert geoometry_msgs::Point to euslisp point vector, this aloso converts [m] to [mm]"
   (float-vector (* 1000.0 (send point :x)) (* 1000.0 (send point :y))  (* 1000.0 (send point :z))))
 
+(defun ros::tf-translation->pos (vec)
+  "Convert geoometry_msgs::Vector3 to euslisp float vector, this also converts [m] to [mm]"
+  (float-vector (* 1000.0 (send vec :x)) (* 1000.0 (send vec :y))  (* 1000.0 (send vec :z))))
+
 (defun ros::tf-quaternion->rot (quaternion)
   "Convert geoometry_msgs::quaternion to euslisp rotation matrix"
   (user::quaternion2matrix
