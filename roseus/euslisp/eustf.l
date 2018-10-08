@@ -38,10 +38,10 @@
   "Convert euslisp pos to geoometry_msgs::Point, this also converts [mm] to [m]"
   (instance geometry_msgs::point :init
             :x (* 0.001 (elt pos 0)) :y (* 0.001 (elt pos 1)) :z (* 0.001 (elt pos 2))))
-(defun ros::pos->tf-translation (pos)
-  "Convert euslisp pos to geoometry_msgs::Vector3, this also converts [mm] to [m]"
+(defun ros::pos->tf-translation (vec)
+  "Convert euslisp vector to geoometry_msgs::Vector3, this also converts [mm] to [m]"
   (instance geometry_msgs::vector3 :init
-            :x (* 0.001 (elt pos 0)) :y (* 0.001 (elt pos 1)) :z (* 0.001 (elt pos 2))))
+            :x (* 0.001 (elt vec 0)) :y (* 0.001 (elt vec 1)) :z (* 0.001 (elt vec 2))))
 
 (defun ros::rot->tf-quaternion (rot)
   "Convert euslisp rot to geoometry_msgs::Quaternion"
